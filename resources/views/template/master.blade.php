@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<title>CDN Generator</title>
-	<meta name="description" content="Generate Fast CDN from github to jsdelivr" />
+	<meta name="description" content="Generate Fast CDN from github to JSDelivr" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 	<link rel="apple-touch-icon" sizes="57x57" href="{{ url('/assets/icons/apple-icon-57x57.png') }}">
 	<link rel="apple-touch-icon" sizes="60x60" href="{{ url('/assets/icons/apple-icon-60x60.png') }}">
@@ -23,7 +24,9 @@
 	<meta name="msapplication-TileImage" content="{{ url('/assets/icons/ms-icon-144x144.png') }}">
 	<meta name="theme-color" content="#d99457">
 
+	{{--
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+	--}}
 	@yield('css')
 </head>
 <body>

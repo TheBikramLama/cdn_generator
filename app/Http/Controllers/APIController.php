@@ -7,8 +7,9 @@ class APIController extends Controller
 {
     public function generate_cdn(Request $request)
     {
-        $url_array = explode('%yz', $request->url);
-        if ( count($url_array) < 1 )
+        $decoded_url = base64_decode($request->url);
+        $url_array = explode('%yz', $decoded_url);
+        if ( count($url_array) < 4 || count($url_array) == null )
         {
             return response()->json([
                 'error' => true,
@@ -18,7 +19,7 @@ class APIController extends Controller
         $username = $url_array[1];
         $repo = $url_array[2];
         $version = $url_array[3];
-        $file = str_replace(['%yz','%ab'], ['/', '.'], explode($version, $request->url)[1]);
+        $file = str_replace(['%yz','%ab'], ['/', '.'], explode($version, $decoded_url)[1]);
 
         $new_url = "https://cdn.jsdelivr.net/gh/{$username}/{$repo}@{$version}{$file}";
 
